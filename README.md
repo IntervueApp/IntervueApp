@@ -1,20 +1,26 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+[Sourcd](http://#) allows a user to discover more about unfamiliar ingredients from the back of a label. 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Anonymous users can upload a picture that will be parsed for text.  From the list, the user can choose one 
+word.  Sourcd will display information about the word like its common name, what product it's commonly found 
+in, and if it's suitable for particular diets.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Registered users, in addition to uploading a picture, can look for words they have previously searched.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+---
+## Dependencies
+This application runs on .NET Core 2.1, which can be downloaded [here](https://www.microsoft.com/net/download/macos).
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+---
+## Build
+To build this app locally, install the [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/macos), and clone this repo onto your machine. 
+From a terminal interface, go to where this was cloned and type the following commands:
+
+```
+cd Sourcd
+dotnet restore
+dotnet run
+```
+---
+## Walk Through
+![Pic 1](https://#)
