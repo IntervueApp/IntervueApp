@@ -4,7 +4,6 @@
 ## Vision
 Web application that uses the Microsoft Speaker Recognition API to distinguish the voice of someone talking, and send the voice data captured through the Microsoft Speech to Text API, in order to transcribe what the speaker is saying in real time.
 
-What pain point does this project solve?
 There are many professions that require speech to be transcribed, or could benefit from a transcribing service. These range from lawyers in courtrooms and business offices, to politicians and lawmakers, to even customer support representatives in call centers.
 
 This application can automate the tedious work of having to remember what was said multiple hours earlier in a certain interaction, and comprising emails based on what one could remember. This application can also reduce the workload of professional transcribers who must work at a frantic pace to keep up with real time conversations between individuals or groups.
@@ -16,23 +15,23 @@ Being able to keep track of who said what, in real time and with a high degree o
 ---
 ## Scope (In/Out)
 **IN** - What will your product do. Describe the individual features that your product will do.
-Provide a registration feature for users to create an account / login feature if they already have an account. This will give them access to the transcription functionality
-Provide a set of pages where users can alter their account settings (calibrate/re-calibrate voice recognition data, change name, change email, add a profile picture)
-Allow users to calibrate their voice in our application, thus setting up speaker recognition
-Allow users to start a recording, thus initializing speech to text
-Display text in real time as the user is speaking into their computer’s microphone
-Display user’s name or profile picture, if one is uploaded, alongside the text, in order to differentiate who the speaker of a specific text block is
-Display another user’s name (or profile picture) on a separate line or text block, if a different speaker begins talking into the computer’s microphone
-Store text transcriptions in a user’s account so that they can view the transcriptions of later on
-Allow users to delete text transcriptions of their previous recordings
-Allow users to edit their text transcriptions manually, with their mouse and keyboard, both in real time and for previous recordings
-Allow users to send emails containing the text transcriptions of previous recordings, by formatting the email and inputting the email address where the message will be sent, all within the web application
+ - Provide a registration feature for users to create an account / login feature if they already have an account. This will give them access to the transcription functionality
+ - Provide a set of pages where users can alter their account settings (calibrate/re-calibrate voice recognition data, change name, change email, add a profile picture)
+ - Allow users to calibrate their voice in our application, thus setting up speaker recognition
+ - Allow users to start a recording, thus initializing speech to text
+ - Display text in real time as the user is speaking into their computer’s microphone
+ - Display user’s name or profile picture, if one is uploaded, alongside the text, in order to differentiate who the speaker of a specific text block is
+ - Display another user’s name (or profile picture) on a separate line or text block, if a different speaker begins talking into the computer’s microphone
+ - Store text transcriptions in a user’s account so that they can view the transcriptions of later on
+ - Allow users to delete text transcriptions of their previous recordings
+ - Allow users to edit their text transcriptions manually, with their mouse and keyboard, both in real time and for previous recordings
+ - Allow users to send emails containing the text transcriptions of previous recordings, by formatting the email and inputting the email address where the message will be sent, all within the web application
 
 **OUT** - What will your product not do. These should be features that you will make very clear from the beginning that you will not do during development. HINT: Pick your battles wisely. This should only be 1 or 2 things.
-Store voice recordings
-Perform spell checking operations
-Allow access to CRUD operations for users who are not logged in
-Allow access to calibrate voice or start recordings for users who are not logged in
+ - Store voice recordings
+ - Perform spell checking operations
+ - Allow access to CRUD operations for users who are not logged in
+ - Allow access to calibrate voice or start recordings for users who are not logged in
 
 ---
 ## MVP
