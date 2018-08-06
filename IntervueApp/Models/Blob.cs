@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace IntervueApp.Models
     {
         public CloudStorageAccount CloudStorageAccount { get; set; }
         public CloudBlobClient CloudBlobClient { get; set; }
+        public IConfiguration _configuration { get; set; }
 
-        public Blob()
+        public Blob(IConfiguration configuration)
         {
-            CloudStorageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=intervuestorage;AccountKey=1IGtYb6i5OeqQ6CJHR2U0IW7dQq72doLPxSFp2oNLvOgMFAiCiI5OX3rXK0EYaYQiLl/U6tIqpkwJTICsio56A==;EndpointSuffix=core.windows.net");
+            _configuration = configuration;
+            CloudStorageAccount = CloudStorageAccount.Parse(_configuration["ConnectionStrings:BlobStorage"]);
             CloudBlobClient = CloudStorageAccount.CreateCloudBlobClient();
         }
 
@@ -25,7 +28,9 @@ namespace IntervueApp.Models
 			await cbc.CreateIfNotExistsAsync();
 
 			await cbc.SetPermissionsAsync(new BlobContainerPermissions
-			{ PublicAccess = BlobContainerPublicAccessType.Blob });
+			    {
+                    PublicAccess = BlobContainerPublicAccessType.Blob
+                });
 
 			return cbc;
 		}
