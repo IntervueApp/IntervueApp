@@ -45,7 +45,6 @@ If someone else speaks into the computer’s microphone while a user has started
 
 ---
 ## Stretch
-What stretch goals are you going to aim for?
 1. Users will be able to alter the text transcriptions manually, with mouse and keyboard, after a recording has stopped, or for saved transcriptions.
 2. Users will be able to alter the text transcriptions manually, with mouse and keyboard, in real time while the recording is happening.
 3. Users will be able to format and send emails directly from within the web application, containing any of their text transcriptions.
@@ -54,19 +53,17 @@ What stretch goals are you going to aim for?
 
 ---
 ## Functional Requirements
-List the functionality of your product. This will consist of tasks such as the following:
-
-A user can log in through standard means or via a 3rd party account
-A user can calibrate/re-calibrate voice recognition data, change name, change email, and add a profile picture
-A user can start a recording so that their speech will be transcribed in real time
-They can save the transcription if they would like
-Transcriptions are not saved by default
-A user can do the following with transcriptions recorded under their account
-Read previous transcription
-Update transcriptions manually (mouse and keyboard)
-Delete transcriptions
-Send emails with transcriptions in the body of the message
-A user can search by date, and see all of their transcriptions recorded that day
+A user can log in through standard means or via a 3rd party account.
+A user can calibrate/re-calibrate voice recognition data, change name, change email, and add a profile picture.
+A user can start a recording so that their speech will be transcribed in real time.
+They can save the transcription if they would like.
+Transcriptions are not saved by default.
+A user can do the following with transcriptions recorded under their account.
+Read previous transcription.
+Update transcriptions manually (mouse and keyboard).
+Delete transcriptions.
+Send emails with transcriptions in the body of the message.
+A user can search by date, and see all of their transcriptions recorded that day.
 
 ---
 ## Non-Functional Requirements
