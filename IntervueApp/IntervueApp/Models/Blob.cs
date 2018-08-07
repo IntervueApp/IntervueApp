@@ -21,25 +21,18 @@ namespace IntervueApp.Models
             CloudBlobClient = CloudStorageAccount.CreateCloudBlobClient();
         }
 
-		// GetContainer
-		public async Task<CloudBlobContainer> GetContainer(string containerName)
-		{
-			CloudBlobContainer cbc = CloudBlobClient.GetContainerReference(containerName);
-			await cbc.CreateIfNotExistsAsync();
+        // GetContainer
+        public async Task<CloudBlobContainer> GetContainer(string containerName)
+        {
+            CloudBlobContainer cbc = CloudBlobClient.GetContainerReference(containerName);
+            await cbc.CreateIfNotExistsAsync();
 
-			await cbc.SetPermissionsAsync(new BlobContainerPermissions
-			    {
-                    PublicAccess = BlobContainerPublicAccessType.Blob
-                });
+            await cbc.SetPermissionsAsync(new BlobContainerPermissions
+            {
+                PublicAccess = BlobContainerPublicAccessType.Blob
+            });
 
-			return cbc;
-		}
-
-		// UploadFile
-
-		// DownloadFile
-
-		// GetBlob
-        
+            return cbc;
+        }
     }
 }
