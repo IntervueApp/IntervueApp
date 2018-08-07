@@ -5,3 +5,17 @@
 <h3>@ViewData["Message"]</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@if (SignInManager.IsSignedIn(User))
+
+{
+    <h1>THIS WORKS!</h1>
+
+    @*
+            Would be a nice visual but not working atm. Figure out how to display username later.
+
+            <p>@User.Claims.FirstOrDefault(c => c.Type == "GivenName").Value!</p>
+        <p>@User.Claims.FirstOrDefault(c => c.Type == "Surname").Value!</p>
+        <p>@User.Claims.FirstOrDefault(c => c.Type == "Email").Value!</p>*@
+
+}
