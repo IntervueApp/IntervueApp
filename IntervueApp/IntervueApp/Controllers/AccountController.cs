@@ -103,7 +103,7 @@ namespace IntervueApp.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("About", "Home");
             }
 
             var email = info.Principal.FindFirstValue(ClaimTypes.Email);
@@ -152,7 +152,7 @@ namespace IntervueApp.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("About", "Home");
                 }
             }
             return RedirectToAction("Index", "Home");
