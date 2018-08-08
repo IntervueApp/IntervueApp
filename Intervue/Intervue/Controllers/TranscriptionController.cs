@@ -11,11 +11,11 @@ using System.IO;
 namespace Intervue.Controllers
 {
     public class TranscriptionController : Controller
-    { 
+    {
         [HttpGet]
         public async Task<IActionResult> Speech()
         {
-            SpeechViewModel svm = await EnableSpeechRecognition();            
+            SpeechViewModel svm = await EnableSpeechRecognition();
 
             return View(svm);
         }
@@ -24,7 +24,6 @@ namespace Intervue.Controllers
         public IActionResult Speech(SpeechViewModel svm)
         {
             DownloadTextFile(svm.FileName, svm.ResultMessage);
-
             return RedirectToAction("Index", "Home");
         }
 
@@ -43,7 +42,7 @@ namespace Intervue.Controllers
                 svm.PromptMessage = "Say something...";
 
                 // Performs recognition.
-                // RecognizeAsync() returns when the first utterance has been recognized, so it is suitable 
+                // RecognizeAsync() returns when the first utterance has been recognized, so it is suitable
                 // only for single shot recognition like command or query. For long-running recognition, use
                 // StartContinuousRecognitionAsync() instead.
                 var result = await recognizer.RecognizeAsync();
@@ -80,6 +79,5 @@ namespace Intervue.Controllers
 
             outputFile.Flush();
         }
-
     }
 }
