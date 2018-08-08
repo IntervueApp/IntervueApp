@@ -2,4 +2,18 @@
 
 <h2>@Model.PromptMessage</h2>
 
-<h2>@Model.ResultMessage</h2>
+<form asp-action="Speech" method="post">
+    <div>
+        <label asp-for="ResultMessage">Result: </label>
+        <textarea asp-for="ResultMessage" type="text" value="@Model.ResultMessage"></textarea>
+    </div>
+
+    <div>
+        <label asp-for="FileName">File name: </label>
+        <input asp-for="FileName" type="text" value="speech" />
+    </div>
+
+    <div>
+        <button type="submit">Download</button>
+    </div>
+</form>
