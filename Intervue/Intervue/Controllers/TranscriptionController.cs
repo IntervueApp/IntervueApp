@@ -15,39 +15,32 @@ namespace Intervue.Controllers
         [HttpGet]
         public async Task<IActionResult> Speech()
         {
+            // Create SpeechViewModel in order to pass captured speech
             SpeechViewModel svm = new SpeechViewModel();
+            svm.PromptMessage = "Say something...";
 
-            // Creates an instance of a speech factory with specified
-            // subscription key and service region. Replace with your own subscription key
-            // and service region (e.g., "westus").
-            // Creates a speech recognizer.
-            using (var recognizer = factory.CreateSpeechRecognizer())
+            // Create SpeechRecognizer to accept audio input and parse words from the audio
+            SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
+
+            // Listen for audio input from the user
+            var result = await recognizer.RecognizeAsync();
+            
+            // Act on audio input from the user
+            if (result.RecognitionStatus != RecognitionStatus.Recognized)
             {
-                svm.PromptMessage = "Say something...";
-
-                // Performs recognition.
-                // RecognizeAsync() returns when the first utterance has been recognized, so it is suitable 
-                // only for single shot recognition like command or query. For long-running recognition, use
-                // StartContinuousRecognitionAsync() instead.
-                var result = await recognizer.RecognizeAsync();
-
-                // Checks result.
-                if (result.RecognitionStatus != RecognitionStatus.Recognized)
+                Console.WriteLine($"Recognition status: {result.RecognitionStatus.ToString()}");
+                if (result.RecognitionStatus == RecognitionStatus.Canceled)
                 {
-                    Console.WriteLine($"Recognition status: {result.RecognitionStatus.ToString()}");
-                    if (result.RecognitionStatus == RecognitionStatus.Canceled)
-                    {
-                        svm.ResultMessage = $"There was an error, reason: {result.RecognitionFailureReason}";
-                    }
-                    else
-                    {
-                        svm.ResultMessage = "No speech could be recognized.\n";
-                    }
+                    svm.ResultMessage = $"There was an error, reason: {result.RecognitionFailureReason}";
                 }
                 else
                 {
-                    svm.ResultMessage = $"We recognized: {result.Text}";
+                    svm.ResultMessage = "No speech could be recognized.\n";
                 }
+            }
+            else
+            {
+                svm.ResultMessage = $"We recognized: {result.Text}";
             }
 
             return View(svm);
