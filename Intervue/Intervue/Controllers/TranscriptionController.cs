@@ -16,8 +16,10 @@ namespace Intervue.Controllers
         public async Task<IActionResult> Speech()
         {
             // Create SpeechViewModel in order to pass captured speech
-            SpeechViewModel svm = new SpeechViewModel();
-            svm.PromptMessage = "Say something...";
+            SpeechViewModel svm = new SpeechViewModel
+            {
+                PromptMessage = "Say something..."
+            };
 
             // Create SpeechRecognizer to accept audio input and parse words from the audio
             SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
