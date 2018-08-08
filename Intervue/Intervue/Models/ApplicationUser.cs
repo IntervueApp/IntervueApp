@@ -10,5 +10,12 @@ namespace Intervue.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string BlobContainerID { get; set; }
+    }
+
+    public static class ApplicationUserRoles
+    {
+        public const string Member = "Member";
+        public const string Admin = "Admin";
     }
 }
