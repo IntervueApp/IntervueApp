@@ -74,16 +74,9 @@ namespace Intervue.Controllers
         {
             string newDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            string actualPath = Path.Combine(newDocPath, (fileName + ".txt"));
+            StreamWriter outputFile = new StreamWriter(Path.Combine(newDocPath, (fileName + ".txt")));
 
-            FileStream fs = new FileStream(actualPath, FileMode.Create, FileAccess.Write);
-
-            StreamWriter outputFile = new StreamWriter(fs);
-
-            foreach (var line in fileText)
-            {
-                await outputFile.WriteAsync(line);
-            }
+            await outputFile.WriteAsync(fileText);
 
             outputFile.Flush();
         }
