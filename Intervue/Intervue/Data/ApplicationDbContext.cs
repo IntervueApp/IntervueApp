@@ -1,8 +1,7 @@
-﻿using IntervueApp.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace IntervueApp.Data
+namespace Intervue.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

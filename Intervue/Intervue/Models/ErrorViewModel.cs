@@ -1,6 +1,6 @@
 using System;
 
-namespace IntervueApp.Models
+namespace Intervue.Models
 {
     public class ErrorViewModel
     {
