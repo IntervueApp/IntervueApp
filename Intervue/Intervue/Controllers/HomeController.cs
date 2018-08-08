@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using IntervueApp.Models;
+using Intervue.Models;
 
-namespace IntervueApp.Controllers
+namespace Intervue.Controllers
 {
     public class HomeController : Controller
     {
