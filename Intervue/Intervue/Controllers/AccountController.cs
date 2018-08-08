@@ -64,11 +64,11 @@ namespace Intervue.Controllers
                 claims.Add(emailClaim);
 
                 await _userManager.AddClaimsAsync(user, claims);
-                await _userManager.AddToRoleAsync(user, ApplicationUserRoles.MEMBER);
+                await _userManager.AddToRoleAsync(user, ApplicationUserRoles.Member);
 
                 if (user.Email.Contains("@intervue.com") || user.Email.Contains("@codefellows.com"))
                 {
-                    await _userManager.AddToRoleAsync(user, ApplicationUserRoles.ADMIN);
+                    await _userManager.AddToRoleAsync(user, ApplicationUserRoles.Admin);
                 }
 
                 await _context.SaveChangesAsync();

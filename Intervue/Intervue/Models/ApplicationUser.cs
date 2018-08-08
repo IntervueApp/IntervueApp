@@ -15,7 +15,7 @@ namespace Intervue.Models
 
     public static class ApplicationUserRoles
     {
-        public const string MEMBER = "Member";
-        public const string ADMIN = "Admin";
+        public const string Member = "Member";
+        public const string Admin = "Admin";
     }
 }
