@@ -25,12 +25,21 @@ namespace Intervue.Controllers
             _signInManager = signInManager;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="rvm"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Register(RegistrationViewModel rvm)
         {
@@ -57,7 +66,6 @@ namespace Intervue.Controllers
                 Claim nameClaim = new Claim("FullName", fullName, ClaimValueTypes.String);
                 Claim emailClaim = new Claim(ClaimTypes.Email, user.Email, ClaimTypes.Email);
 
-
                 claims.Add(nameClaim);
                 claims.Add(emailClaim);
 
@@ -78,12 +86,21 @@ namespace Intervue.Controllers
             return View();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="lvm"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel lvm)
         {
@@ -100,6 +117,10 @@ namespace Intervue.Controllers
             return View();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
@@ -111,6 +132,5 @@ namespace Intervue.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
     }
 }
