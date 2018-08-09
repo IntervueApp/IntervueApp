@@ -1,0 +1,23 @@
+﻿@model Intervue.Models.ViewModels.LoginViewModel
+
+@{ 
+    ViewData["Title"] = "Login";
+}
+
+<form asp-action="Login" method="post">
+
+    <div>
+        <label asp-for="Email">Email: </label>
+        <input asp-for="Email" type="text" required />
+    </div>
+    
+    <div>
+        <label asp-for="Password">Password: </label>
+        <input asp-for="Password" type="password" required />
+    </div>
+
+    <div>
+        <button type="submit">Login</button>
+    </div>
+
+</form>
