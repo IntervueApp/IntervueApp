@@ -17,6 +17,19 @@
             <div class="navbar-header">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Intervue</a>
             </div>
+
+            @if (User.Identity.Name == null)
+            {
+                <div class="navbar-header">
+                    <a asp-controller="Account" asp-action="Login" class="navbar-brand">Login</a>
+                </div>
+            }
+            else
+            {
+                <div class="navbar-header">
+                    <a asp-controller="Account" asp-action="Logout" class="navbar-brand">Logout</a>
+                </div>
+            }
         </div>
     </nav>
 

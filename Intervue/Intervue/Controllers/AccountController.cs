@@ -77,5 +77,40 @@ namespace Intervue.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel lvm)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, false, false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            if (ModelState.IsValid)
+            {
+                await _signInManager.SignOutAsync();
+                ViewData["LoggedOut"] = "Logout successful";
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
