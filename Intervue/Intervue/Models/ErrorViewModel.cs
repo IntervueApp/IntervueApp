@@ -1,5 +1,3 @@
-using System;
-
 namespace Intervue.Models
 {
     public class ErrorViewModel
