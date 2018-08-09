@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Intervue.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CognitiveServices.Speech;
-using System.Text;
 using System.IO;
 
 namespace Intervue.Controllers
