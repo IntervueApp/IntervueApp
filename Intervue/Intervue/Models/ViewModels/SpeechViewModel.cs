@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Intervue.Models.ViewModels
+﻿namespace Intervue.Models.ViewModels
 {
     public class SpeechViewModel
     {
