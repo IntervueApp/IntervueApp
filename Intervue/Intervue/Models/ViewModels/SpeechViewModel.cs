@@ -9,5 +9,6 @@ namespace Intervue.Models.ViewModels
     {
         public string PromptMessage { get; set; }
         public string ResultMessage { get; set; }
+        public string FileName { get; set; }
     }
 }
