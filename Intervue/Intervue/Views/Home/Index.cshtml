@@ -7,32 +7,55 @@
         crossorigin="anonymous">
 </script>
 
-<a class="btn btn-info btn-lg" asp-controller="Transcription" asp-action="Speech" OnClick="">Click here to start recording</a>
+    <a class="btn btn-info btn-lg" asp-controller="Transcription" asp-action="Speech">Click here to start recording</a>
+<div id="modal-recording">
+    <a id="modal-recording">recording</a>
+</div>
+    
+<div id="modalPop" class="modal-window">
+    <div>
+        <a href="#modal-close" title="Close" class="modal-close">Close</a>
+        <div class="loader">
+            <span>R</span>
+            <span>E</span>
+            <span>C</span>
+            <span>O</span>
+            <span>R</span>
+            <span>D</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
 
-<div class="loader">
-    <span>R</span>
-    <span>E</span>
-    <span>C</span>
-    <span>O</span>
-    <span>R</span>
-    <span>D</span>
-    <span>I</span>
-    <span>N</span>
-    <span>G</span>
+            <div class="covers">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
 
-    <div class="covers">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function () { 
+        $("modal-recording").click(function () {
+            $("modalPop").dialog({
+                title: "recording",
+                width: 500,
+                height: 500,
+                modal: true
+            });
+        });
+    })
+</script>
 
 <div id="loader">
     <h2>Please speak</h2>
 </div>
+
