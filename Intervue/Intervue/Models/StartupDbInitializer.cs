@@ -11,6 +11,9 @@ namespace Intervue.Models
 {
     public class StartupDbInitializer
     {
+        /// <summary>
+        ///
+        /// </summary>
         private static readonly List<IdentityRole> Roles = new List<IdentityRole>()
         {
             new IdentityRole {
@@ -25,6 +28,11 @@ namespace Intervue.Models
                              }
         };
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="serviceProvider"></param>
+        /// <param name="userManager"></param>
         public static async void SeedDataAsync(IServiceProvider serviceProvider, UserManager<ApplicationUser> userManager)
         {
             ApplicationDbContext dbContext = new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>());
@@ -33,6 +41,11 @@ namespace Intervue.Models
             await AddRolesAsync(dbContext);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dbContext"></param>
+        /// <returns></returns>
         private static async Task AddRolesAsync(ApplicationDbContext dbContext)
         {
             if (dbContext.Roles.Any()) { return; }

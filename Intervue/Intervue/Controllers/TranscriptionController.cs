@@ -8,15 +8,24 @@ using System.IO;
 namespace Intervue.Controllers
 {
     public class TranscriptionController : Controller
-    { 
+    {
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Speech()
         {
-            SpeechViewModel svm = await EnableSpeechRecognition();            
+            SpeechViewModel svm = await EnableSpeechRecognition();
 
             return View(svm);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="svm"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Speech(SpeechViewModel svm)
         {
@@ -25,6 +34,10 @@ namespace Intervue.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
         private static async Task<SpeechViewModel> EnableSpeechRecognition()
         {
             SpeechViewModel svm = new SpeechViewModel
@@ -36,7 +49,7 @@ namespace Intervue.Controllers
 
             // Creates a SpeechRecognizer to accept audio input from the user
             SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
-            
+
             // Accepts audio input from the user to recognize speech
             SpeechRecognitionResult result = await recognizer.RecognizeAsync();
 
@@ -61,6 +74,11 @@ namespace Intervue.Controllers
             return svm;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="fileText"></param>
         private static async void DownloadTextFile(string fileName, string fileText)
         {
             string newDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -71,6 +89,5 @@ namespace Intervue.Controllers
 
             outputFile.Flush();
         }
-
     }
 }

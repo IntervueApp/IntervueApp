@@ -11,6 +11,10 @@ namespace Intervue.Models
         public CloudBlobClient CloudBlobClient { get; set; }
         public IConfiguration _configuration { get; set; }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="configuration"></param>
         public Blob(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -18,7 +22,11 @@ namespace Intervue.Models
             CloudBlobClient = CloudStorageAccount.CreateCloudBlobClient();
         }
 
-        // GetContainer
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="containerName"></param>
+        /// <returns></returns>
         public async Task<CloudBlobContainer> GetContainer(string containerName)
         {
             CloudBlobContainer cbc = CloudBlobClient.GetContainerReference(containerName);
