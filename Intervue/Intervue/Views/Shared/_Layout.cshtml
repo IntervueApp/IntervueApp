@@ -21,6 +21,10 @@
             @if (User.Identity.Name == null)
             {
                 <div class="navbar-header">
+                    <a asp-controller="Account" asp-action="Register" class="navbar-brand">Register for an Account</a>
+                </div>
+
+                <div class="navbar-header">
                     <a asp-controller="Account" asp-action="Login" class="navbar-brand">Login</a>
                 </div>
             }
