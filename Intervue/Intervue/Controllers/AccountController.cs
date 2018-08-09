@@ -26,7 +26,7 @@ namespace Intervue.Controllers
         }
 
         /// <summary>
-        ///
+        /// This is the Register (Account View folder, Register page). Notice the retrieval, HttpGet.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -36,7 +36,7 @@ namespace Intervue.Controllers
         }
 
         /// <summary>
-        ///
+        /// This is the functionality of posting the new registration into the database. The claims are the first name, last name and email. The email will also be acting as the username.
         /// </summary>
         /// <param name="rvm"></param>
         /// <returns></returns>
@@ -58,10 +58,13 @@ namespace Intervue.Controllers
                 Email = rvm.Email,
             };
 
+            //Each user requires a password paired with their username.
             var result = await _userManager.CreateAsync(user, rvm.Password);
 
+            //if the password and username pairing succeeds, their information will go through claims to see if the requirements have passed on. In this case, the name and email claim will be checked. If the email contains @intervue or @codefellows, they will become admin. Otherwise, everyone else who registers and passes claims will become a member. Once this is saved into the database, the user will be redirected back to the index view of the Home folder.
             if (result.Succeeded)
             {
+                //
                 string fullName = $"{user.FirstName} {user.LastName}";
                 Claim nameClaim = new Claim("FullName", fullName, ClaimValueTypes.String);
                 Claim emailClaim = new Claim(ClaimTypes.Email, user.Email, ClaimTypes.Email);
@@ -87,7 +90,7 @@ namespace Intervue.Controllers
         }
 
         /// <summary>
-        ///
+        /// This is a retrieval for the Login (Account view folder, Login page)
         /// </summary>
         /// <returns></returns>
         [HttpGet]
