@@ -2,38 +2,21 @@
     ViewData["Title"] = "Intervue";
 }
 
-    <a id="modal" class="btn btn-info btn-lg" asp-controller="Transcription" asp-action="Speech">Record</a>
-<div onclick="modalClick()" id="modal-recording">
-    <a href="#modalPop">recording</a>
-</div>
-    
-<div id="modalPop" class="modal-window">
-    <div>
-        <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-            <div class="covers">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-    </div>
+<a id="modal" asp-controller="Transcription" asp-action="Speech">Record</a>
+<div class="modal-container">
+	<div id="modalPop" class="modal-window">
+		<div class="sliders">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript">
@@ -42,8 +25,4 @@
 		location.hash = "#modalPop";
 	})
 </script>
-
-<div id="loader">
-    <h2>Please speak</h2>
-</div>
 
