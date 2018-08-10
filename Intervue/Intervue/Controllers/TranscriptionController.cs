@@ -42,7 +42,7 @@ namespace Intervue.Controllers
 
             Uri uri = new Uri("https://westus.api.cognitive.microsoft.com/sts/v1.0");
 
-            SpeechFactory factory = SpeechFactory.FromEndPoint(uri, "a5a9e9b4c6164808be0c34ccd4d1e598");
+            SpeechFactory factory = SpeechFactory.FromEndPoint(uri, "a05e530716d746e2922bfcf8c12cd536");
 
             // Creates a SpeechRecognizer to accept audio input from the user
             SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
