@@ -2,7 +2,7 @@
 
 ---
 ## Vision
-Web application that uses the Microsoft Speaker Recognition API to distinguish the voice of someone talking, and send the voice data captured through the Microsoft Speech to Text API, in order to transcribe what the speaker is saying in real time.
+Web application that uses the Microsoft Speech SDK to distinguish the voice of someone talking, and send the voice data captured through the Microsoft Speech SDK, in order to transcribe what the speaker is saying in real time.
 
 There are many professions that require speech to be transcribed, or could benefit from a transcribing service. These range from lawyers in courtrooms and business offices, to politicians and lawmakers, to even customer support representatives in call centers.
 
@@ -75,8 +75,11 @@ Data Integrity: Data should be easy to understand. Data should be recorded as it
 
 ---
 ## Data Flow
-![Data flow]()
+![Data flow](~/images/DataFlow.JPG)
 
 ---
 ## Database Schema
-![Database Schema]()
+![Database Schema](~/images/DBSchema.JPG)
+
+### Explanation 
+We have one database called the ApplicationDb. It consists of holding the users. The primary key is their Id. The other pieces saved are their first name, last name, email and password. This database is connected to the AccountController, which will have the pieces saved from the Register method. 

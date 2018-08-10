@@ -6,11 +6,19 @@ namespace Intervue.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// returns to the Index View (Home View folder, Index page)
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Directs to the About page (Home View folder, About page)
+        /// </summary>
+        /// <returns></returns>
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -18,18 +26,10 @@ namespace Intervue.Controllers
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        /// <summary>
+        /// This is the error page in case any other view than above is attempted
+        /// </summary>
+        /// <returns></returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

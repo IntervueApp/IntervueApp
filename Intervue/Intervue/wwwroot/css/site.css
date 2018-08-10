@@ -81,7 +81,8 @@ nav a:hover {
 	#record_button:hover {
 		background: linear-gradient(to right, #00A9AB, #FFECC6);
 		color: #FFF;
-		transition: ease-in-out .3s;
+		transition: ease-in-out .1s;
+		border: 2px solid #FFF;
 	}
 
 #record_message {
