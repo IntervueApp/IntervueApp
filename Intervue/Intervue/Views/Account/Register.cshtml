@@ -4,7 +4,7 @@
     ViewData["Title"] = "Register";
 }
 
-<h2>New Account</h2>
+<h1>New Account</h1>
 
 <form asp-action="Register" method="post">
 
@@ -24,7 +24,7 @@
         <input asp-for="ConfirmPassword" type="password" placeholder="Re-type Password" required />
     </div>
     <div>
-        <button type="submit">Register</button>
+        <button id="record_button" type="submit">Register</button>
     </div>
 
 </form>

@@ -1,16 +1,18 @@
 ﻿@model Intervue.Models.ViewModels.SpeechViewModel;
 
+<h1>Vue Result</h1>
+
 <form asp-action="Speech" method="post">
     <div>
-        <textarea asp-for="ResultMessage" type="text" value="@Model.ResultMessage"></textarea>
+        <textarea id="result_message" asp-for="ResultMessage" type="text" value="@Model.ResultMessage"></textarea>
     </div>
 
     <div class="file_download">
-        <label asp-for="FileName">Save Your File</label>
+        <h1>Save Vue</h1>
         <input asp-for="FileName" type="text" value="@DateTime.Now.ToString("MM_dd_yyyy_hh_mm_ss")" />
     </div>
 
     <div>
-        <button type="submit">Download</button>
+        <button id="record_button" type="submit">Download</button>
     </div>
 </form>

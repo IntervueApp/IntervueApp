@@ -20,6 +20,12 @@ body {
 	margin: 0;
 }
 
+h1 {
+	text-transform: lowercase;
+	color: #00A9AB;
+	margin: 0;
+}
+
 nav {
 	width: 100%;
 	background: #00A9AB;
@@ -29,12 +35,13 @@ nav {
 
 .navbar_container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	margin: 0 auto;
 	width: 55%;
 }
 
 nav a {
+	font-size: 1.5rem;
 	flex-grow: 1;
 	color: #FBF076;
 	text-decoration: none;
@@ -47,7 +54,9 @@ nav a:hover {
 }
 
 #record_button {
-	margin-top: 2rem;
+	background: none;
+	font-family: Mallanna;
+	margin: 2rem;
 	padding-bottom: .5rem;
 	display: inline-block;
 	width: 13.5rem;
@@ -60,19 +69,46 @@ nav a:hover {
 }
 
 	#record_button:hover {
-		background: #00A9AB;
+		background: linear-gradient(to right, #00A9AB, #FFECC6);
 		color: #FFF;
 		transition: ease-in-out .3s;
 	}
 
+#record_message {
+	color: #808080;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#record_title {
+	color: #808080;
+	width: 50%;
+	margin: 0 auto;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
 input {
 	font-family: Mallanna;
 	border: 1px solid grey;
-	border-radius: .5rem;
+	border-radius: .25rem;
 	padding: .5rem 2rem;
 	text-transform: lowercase;
 	font-size: 1.5rem;
 	margin: .5rem;
+}
+
+textarea {
+	font-family: Mallanna;
+	color: #808080;
+	height: 18rem;
+	line-height: 2.5rem;
+	border: 1px solid #808080;
+	border-radius: .25rem;
+	padding: 2rem;
+	text-transform: unset;
+	font-size: 2.5rem;
+	margin-bottom: .5rem;
 }
 
 /* Modal */
