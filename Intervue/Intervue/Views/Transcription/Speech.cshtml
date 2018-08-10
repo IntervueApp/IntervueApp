@@ -1,21 +1,13 @@
 ﻿@model Intervue.Models.ViewModels.SpeechViewModel;
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-</script>
-
-<h2>@Model.PromptMessage</h2>
-
 <form asp-action="Speech" method="post">
     <div>
-        <label asp-for="ResultMessage">Result: </label>
         <textarea asp-for="ResultMessage" type="text" value="@Model.ResultMessage"></textarea>
     </div>
 
-    <div>
-        <label asp-for="FileName">File name: </label>
-        <input asp-for="FileName" type="text" value="speech" />
+    <div class="file_download">
+        <label asp-for="FileName">Save Your File</label>
+        <input asp-for="FileName" type="text" value="transcription-@DateTime.Now.ToString("MM_dd_yyyy_hh_mm_ss")" />
     </div>
 
     <div>
