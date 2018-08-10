@@ -2,48 +2,29 @@
     ViewData["Title"] = "Intervue";
 }
 
-    <a id="modal" class="btn btn-info btn-lg" asp-controller="Transcription" asp-action="Speech">Record</a>
-<div onclick="modalClick()" id="modal-recording">
-    <a href="#modalPop">recording</a>
+<div class="modal-container">
+	<div id="modalPop" class="modal-window">
+		<div class="sliders">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
 </div>
-    
-<div id="modalPop" class="modal-window">
-    <div>
-        <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-            <div class="covers">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-    </div>
-</div>
+<a id="record_button" asp-controller="Transcription" asp-action="Speech">Record</a>
+<h1 id="record_title">Intervue : The Transcription AI</h1>
+<h2 id="record_message">To try it out, click the button and start speaking.</h2>
 
 <script type="text/javascript">
-	var aTag = document.getElementById("modal");
+	var aTag = document.getElementById("record_button");
 	aTag.addEventListener("click", function (event) {
 		location.hash = "#modalPop";
 	})
 </script>
-
-<div id="loader">
-    <h2>Please speak</h2>
-</div>
 

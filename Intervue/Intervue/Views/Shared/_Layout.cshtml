@@ -1,46 +1,37 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Intervue</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Intervue</title>
+	<link rel="stylesheet" href="~/css/site.css" />
 
-    <environment include="Development">
-        @*<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>*@
-        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="navbar-header">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Intervue</a>
-            </div>
+	<main>
+		<nav>
+			<div class="navbar_container">
+				<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Intervue</a>
 
-            @if (User.Identity.Name == null)
-            {
-                <div class="navbar-header">
-                    <a asp-controller="Account" asp-action="Login" class="navbar-brand">Login</a>
-                </div>
-            }
-            else
-            {
-                <div class="navbar-header">
-                    <a asp-controller="Account" asp-action="Logout" class="navbar-brand">Logout</a>
-                </div>
-            }
-        </div>
-    </nav>
+				@if (User.Identity.Name == null)
+				{
+					<a asp-controller="Account" asp-action="Register">Register</a>
+					<a asp-controller="Account" asp-action="Login">Login</a>
+				}
+				else
+				{
+					<a asp-controller="Account" asp-action="Logout">Logout</a>
+				}
+			</div>
+		</nav>
 
-    <partial name="_CookieConsentPartial" />
+		<div>
+			@RenderBody()
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - Intervue</p>
-        </footer>
-    </div>
+			<footer>
+				<p>&copy; 2018 | Intervue</p>
+			</footer>
+		</div>
+	</main>
 </body>
 </html>

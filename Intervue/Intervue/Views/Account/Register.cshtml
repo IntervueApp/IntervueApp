@@ -4,36 +4,26 @@
     ViewData["Title"] = "Register";
 }
 
-<h2>Register for an Account</h2>
+<h1>New Account</h1>
 
 <form asp-action="Register" method="post">
 
     <div>
-        <label asp-for="FirstName">First Name: </label>
-        <input asp-for="FirstName" type="text" required />
+        <input asp-for="FirstName" type="text" placeholder="First Name" required />
     </div>
-
     <div>
-        <label asp-for="LastName">Last Name: </label>
-        <input asp-for="LastName" type="text" required />
+        <input asp-for="LastName" type="text" placeholder="Last Name" required />
     </div>
-
     <div>
-        <label asp-for="Email">Email: </label>
-        <input asp-for="Email" type="email" required />
+        <input asp-for="Email" type="email" placeholder="Email" required />
     </div>
-
     <div>
-        <label asp-for="Password">Password: </label>
-        <input asp-for="Password" type="password" required />
+        <input asp-for="Password" type="password" placeholder="Password" required />
     </div>
-
     <div>
-        <label asp-for="ConfirmPassword">Confirm Password: </label>
-        <input asp-for="ConfirmPassword" type="password" required />
+        <input asp-for="ConfirmPassword" type="password" placeholder="Re-type Password" required />
     </div>
-
     <div>
-        <button type="submit">Complete Registration</button>
+        <button id="record_button" type="submit">Register</button>
     </div>
 </form>
