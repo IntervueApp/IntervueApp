@@ -4,19 +4,11 @@ using System.Threading.Tasks;
 using Intervue.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CognitiveServices.Speech;
-using Microsoft.Extensions.Configuration;
 
 namespace Intervue.Controllers
 {
     public class TranscriptionController : Controller
     {
-        public IConfiguration Configuration { get; }
-
-        public TranscriptionController(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
         [HttpGet]
         public async Task<IActionResult> Speech()
         {
@@ -39,33 +31,32 @@ namespace Intervue.Controllers
             {
                 PromptMessage = "Speak."
             };
-
-            Uri uri = new Uri("https://westus.api.cognitive.microsoft.com/sts/v1.0");
-
-            SpeechFactory factory = SpeechFactory.FromEndPoint(uri, "a05e530716d746e2922bfcf8c12cd536");
+            
+            SpeechFactory factory = SpeechFactory.FromSubscription("a5a9e9b4c6164808be0c34ccd4d1e598", "westus");
 
             // Creates a SpeechRecognizer to accept audio input from the user
-            SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
-            
-            // Accepts audio input from the user to recognize speech
-            SpeechRecognitionResult result = await recognizer.RecognizeAsync();
-
-            // Acts on recognized speech from audio input
-            if (result.RecognitionStatus != RecognitionStatus.Recognized)
+            using (var recognizer = factory.CreateSpeechRecognizer())
             {
-                Console.WriteLine($"Recognition status: {result.RecognitionStatus.ToString()}");
-                if (result.RecognitionStatus == RecognitionStatus.Canceled)
+                // Accepts audio input from the user to recognize speech
+                var result = await recognizer.RecognizeAsync();
+
+                // Acts on recognized speech from audio input
+                if (result.RecognitionStatus != RecognitionStatus.Recognized)
                 {
-                    svm.ResultMessage = $"There was an error, reason: {result.RecognitionFailureReason}";
+                    Console.WriteLine($"Recognition status: {result.RecognitionStatus.ToString()}");
+                    if (result.RecognitionStatus == RecognitionStatus.Canceled)
+                    {
+                        svm.ResultMessage = $"There was an error, reason: {result.RecognitionFailureReason}";
+                    }
+                    else
+                    {
+                        svm.ResultMessage = "No speech could be recognized.\n";
+                    }
                 }
                 else
                 {
-                    svm.ResultMessage = "No speech could be recognized.\n";
+                    svm.ResultMessage = $"{result.Text}";
                 }
-            }
-            else
-            {
-                svm.ResultMessage = $"{result.Text}";
             }
 
             return svm;
@@ -81,6 +72,5 @@ namespace Intervue.Controllers
 
             outputFile.Flush();
         }
-
     }
 }
