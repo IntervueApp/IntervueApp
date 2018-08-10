@@ -4,20 +4,19 @@
     ViewData["Title"] = "Login";
 }
 
+<h1>Login</h1>
+
 <form asp-action="Login" method="post">
 
     <div>
-        <label asp-for="Email">Email: </label>
-        <input asp-for="Email" type="text" required />
-    </div>
-    
+        <input asp-for="Email" type="text" placeholder="Email" required />
+    </div>  
     <div>
-        <label asp-for="Password">Password: </label>
-        <input asp-for="Password" type="password" required />
+        <input asp-for="Password" type="password" placeholder="Password" required />
     </div>
 
     <div>
-        <button type="submit">Login</button>
+        <button id="record_button" type="submit">Login</button>
     </div>
 
 </form>

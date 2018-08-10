@@ -37,7 +37,7 @@ namespace Intervue.Controllers
         {
             SpeechViewModel svm = new SpeechViewModel
             {
-                PromptMessage = "Say something..."
+                PromptMessage = "Speak."
             };
 
             Uri uri = new Uri("https://westus.api.cognitive.microsoft.com/sts/v1.0");
