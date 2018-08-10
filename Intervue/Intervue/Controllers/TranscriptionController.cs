@@ -9,22 +9,20 @@ using Microsoft.Extensions.Configuration;
 namespace Intervue.Controllers
 {
     public class TranscriptionController : Controller
-    {
-        public IConfiguration Configuration { get; }
-
-        public TranscriptionController(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
+    { 
         [HttpGet]
         public async Task<IActionResult> Speech()
         {
-            SpeechViewModel svm = await EnableSpeechRecognition();            
+            SpeechViewModel svm = await EnableSpeechRecognition();
 
             return View(svm);
         }
 
+        /// <summary>
+        /// This will download the text file based on the SpeechViewModel. The two parameters of DownloadTextFile are the two properties in the SpeechViewModel, file name and result message. This will then go to the Index View of the Home folder.
+        /// </summary>
+        /// <param name="svm"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Speech(SpeechViewModel svm)
         {
@@ -33,7 +31,7 @@ namespace Intervue.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        private async Task<SpeechViewModel> EnableSpeechRecognition()
+        private static async Task<SpeechViewModel> EnableSpeechRecognition()
         {
             SpeechViewModel svm = new SpeechViewModel
             {
@@ -46,7 +44,7 @@ namespace Intervue.Controllers
 
             // Creates a SpeechRecognizer to accept audio input from the user
             SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
-            
+
             // Accepts audio input from the user to recognize speech
             SpeechRecognitionResult result = await recognizer.RecognizeAsync();
 
@@ -71,6 +69,11 @@ namespace Intervue.Controllers
             return svm;
         }
 
+        /// <summary>
+        /// This will download the text file. First, this will look for the folderpath in the user's computer. In this method, it is the MyDocuments folder. Next, it will create a .txt. file via streamwriter into MyDocuments. It then awaits for the results to show up and write asynchronously into the text file. The output then flushes or clears buffers for current writer and causes any buffered data to be written to underlying stream.
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="fileText"></param>
         private static async void DownloadTextFile(string fileName, string fileText)
         {
             string newDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -81,6 +84,5 @@ namespace Intervue.Controllers
 
             outputFile.Flush();
         }
-
     }
 }
