@@ -100,7 +100,7 @@ namespace Intervue.Controllers
         }
 
         /// <summary>
-        ///
+        /// This is the login method. If the state is valid, the signInManager will check with the PasswordSignInAsync. And this will check the email, password, if it is not persistent and not locked out. If this succeeds, this redirects into the Index view in the Home Folder..
         /// </summary>
         /// <param name="lvm"></param>
         /// <returns></returns>
@@ -116,12 +116,11 @@ namespace Intervue.Controllers
                     return RedirectToAction("Index", "Home");
                 }
             }
-
             return View();
         }
 
         /// <summary>
-        ///
+        /// This is the logout method. If the state is valid, the signInManager will call SignOutAsync and sign the user out. If so, the logout will be successful and redirect back to the Index view of the Home folder.
         /// </summary>
         /// <returns></returns>
         [HttpGet]

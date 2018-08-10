@@ -10,7 +10,7 @@ namespace Intervue.Controllers
     public class TranscriptionController : Controller
     {
         /// <summary>
-        ///
+        /// This will instantiate the SpeechViewModel for the EnableSpeechRecognition. The variable name is svm and will return the results, prompt and file name on the View.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -22,7 +22,7 @@ namespace Intervue.Controllers
         }
 
         /// <summary>
-        ///
+        /// This will download the text file based on the SpeechViewModel. The two parameters of DownloadTextFile are the two properties in the SpeechViewModel, file name and result message. This will then go to the Index View of the Home folder.
         /// </summary>
         /// <param name="svm"></param>
         /// <returns></returns>
@@ -35,7 +35,7 @@ namespace Intervue.Controllers
         }
 
         /// <summary>
-        ///
+        /// This method called EnableSpeechRecognition takes in the type, SpeechViewModel. It will first assign a value to prompt message. Then the SpeechFactory from the Speech SDK will have the FromSubscription function, which 'creates an instance of the speech factory with specified subscription key and region.'
         /// </summary>
         /// <returns></returns>
         private static async Task<SpeechViewModel> EnableSpeechRecognition()
@@ -75,7 +75,7 @@ namespace Intervue.Controllers
         }
 
         /// <summary>
-        ///
+        /// This will download the text file. First, this will look for the folderpath in the user's computer. In this method, it is the MyDocuments folder. Next, it will create a .txt. file via streamwriter into MyDocuments. It then awaits for the results to show up and write asynchronously into the text file. The output then flushes or clears buffers for current writer and causes any buffered data to be written to underlying stream.
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="fileText"></param>

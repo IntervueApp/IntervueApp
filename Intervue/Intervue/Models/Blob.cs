@@ -12,18 +12,18 @@ namespace Intervue.Models
         public IConfiguration _configuration { get; set; }
 
         /// <summary>
-        ///
+        /// This is for configuration for where the blob is to be created and accessed. Specifically, using CloudStorageAccount. The API key is noted as BlobStorage, which can be found in User Secrets.
         /// </summary>
         /// <param name="configuration"></param>
         public Blob(IConfiguration configuration)
         {
             _configuration = configuration;
-            CloudStorageAccount = CloudStorageAccount.Parse(_configuration["ConnectionStrings:BlobStorage"]);
+            CloudStorageAccount = CloudStorageAccount.Parse(_configuration["BlobStorage"]);
             CloudBlobClient = CloudStorageAccount.CreateCloudBlobClient();
         }
 
         /// <summary>
-        ///
+        /// This will find the specific container assigned for the user. If the caontainer isn't found, a blob is created. Permissions are then created for this specific blob and will be publicly accessible.
         /// </summary>
         /// <param name="containerName"></param>
         /// <returns></returns>
