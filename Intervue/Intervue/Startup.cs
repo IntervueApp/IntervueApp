@@ -22,7 +22,7 @@ namespace Intervue
             builder.AddUserSecrets<Startup>();
             Configuration = builder.Build();
         }
-                
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -31,7 +31,7 @@ namespace Intervue
                     .AddDefaultTokenProviders();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -45,7 +45,7 @@ namespace Intervue
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {            
+        {
             app.UseExceptionHandler("/Home/Error");
             app.UseHsts();
 
