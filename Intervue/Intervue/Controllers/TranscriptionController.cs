@@ -1,14 +1,22 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Intervue.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CognitiveServices.Speech;
-using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace Intervue.Controllers
 {
     public class TranscriptionController : Controller
-    { 
+    {
+        public IConfiguration Configuration { get; }
+
+        public TranscriptionController(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         [HttpGet]
         public async Task<IActionResult> Speech()
         {
@@ -25,14 +33,14 @@ namespace Intervue.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        private static async Task<SpeechViewModel> EnableSpeechRecognition()
+        private async Task<SpeechViewModel> EnableSpeechRecognition()
         {
             SpeechViewModel svm = new SpeechViewModel
             {
                 PromptMessage = "Say something..."
             };
 
-            SpeechFactory factory = SpeechFactory.FromSubscription("a5a9e9b4c6164808be0c34ccd4d1e598", "westus");
+            SpeechFactory factory = SpeechFactory.FromSubscription(Configuration["SpeechSDK"], "westus");
 
             // Creates a SpeechRecognizer to accept audio input from the user
             SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
