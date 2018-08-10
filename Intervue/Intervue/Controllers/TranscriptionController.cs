@@ -17,6 +17,11 @@ namespace Intervue.Controllers
             return View(svm);
         }
 
+        /// <summary>
+        /// This will download the text file based on the SpeechViewModel. The two parameters of DownloadTextFile are the two properties in the SpeechViewModel, file name and result message. This will then go to the Index View of the Home folder.
+        /// </summary>
+        /// <param name="svm">speech view model</param>
+        /// <returns>redirect</returns>
         [HttpPost]
         public IActionResult Speech(SpeechViewModel svm)
         {
@@ -62,6 +67,11 @@ namespace Intervue.Controllers
             return svm;
         }
 
+        /// <summary>
+        /// This will download the text file. First, this will look for the folderpath in the user's computer. In this method, it is the MyDocuments folder. Next, it will create a .txt. file via streamwriter into MyDocuments. It then awaits for the results to show up and write asynchronously into the text file. The output then flushes or clears buffers for current writer and causes any buffered data to be written to underlying stream.
+        /// </summary>
+        /// <param name="fileName">file name for transcription</param>
+        /// <param name="fileText">transcribed speech</param>
         private static async void DownloadTextFile(string fileName, string fileText)
         {
             string newDocPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
