@@ -5,31 +5,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - Intervue</title>
 	<link rel="stylesheet" href="~/css/site.css" />
-	
+
 </head>
 <body>
-	<nav>
-		<div class="navbar_container">
+	<main>
+		<nav>
+			<div class="navbar_container">
 				<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Intervue</a>
 
-			@if (User.Identity.Name == null)
-			{
+				@if (User.Identity.Name == null)
+				{
 					<a asp-controller="Account" asp-action="Register">Register</a>
 					<a asp-controller="Account" asp-action="Login">Login</a>
-			}
-			else
-			{
+				}
+				else
+				{
 					<a asp-controller="Account" asp-action="Logout">Logout</a>
-			}
+				}
+			</div>
+		</nav>
+
+		<div>
+			@RenderBody()
+
+			<footer>
+				<p>&copy; 2018 | Intervue</p>
+			</footer>
 		</div>
-	</nav>
-
-	<div>
-		@RenderBody()
-
-		<footer>
-			<p>&copy; 2018 | Intervue</p>
-		</footer>
-	</div>
+	</main>
 </body>
 </html>
