@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 namespace Intervue.Controllers
 {
     public class TranscriptionController : Controller
-    { 
+    {
         [HttpGet]
         public async Task<IActionResult> Speech()
         {
@@ -38,9 +38,7 @@ namespace Intervue.Controllers
                 PromptMessage = "Speak."
             };
 
-            Uri uri = new Uri("https://westus.api.cognitive.microsoft.com/sts/v1.0");
-
-            SpeechFactory factory = SpeechFactory.FromEndPoint(uri, "a5a9e9b4c6164808be0c34ccd4d1e598");
+            SpeechFactory factory = SpeechFactory.FromSubscription("a5a9e9b4c6164808be0c34ccd4d1e598", "westus");
 
             // Creates a SpeechRecognizer to accept audio input from the user
             SpeechRecognizer recognizer = factory.CreateSpeechRecognizer();
