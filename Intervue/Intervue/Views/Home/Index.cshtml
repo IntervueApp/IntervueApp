@@ -2,7 +2,6 @@
     ViewData["Title"] = "Intervue";
 }
 
-<a id="modal" asp-controller="Transcription" asp-action="Speech">Record</a>
 <div class="modal-container">
 	<div id="modalPop" class="modal-window">
 		<div class="sliders">
@@ -18,9 +17,10 @@
 		</div>
 	</div>
 </div>
+<a id="record_button" asp-controller="Transcription" asp-action="Speech">Record</a>
 
 <script type="text/javascript">
-	var aTag = document.getElementById("modal");
+	var aTag = document.getElementById("record_button");
 	aTag.addEventListener("click", function (event) {
 		location.hash = "#modalPop";
 	})

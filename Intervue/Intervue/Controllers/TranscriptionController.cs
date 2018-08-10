@@ -29,7 +29,7 @@ namespace Intervue.Controllers
         {
             SpeechViewModel svm = new SpeechViewModel
             {
-                PromptMessage = "Say something..."
+                PromptMessage = "Speak."
             };
 
             SpeechFactory factory = SpeechFactory.FromSubscription("a5a9e9b4c6164808be0c34ccd4d1e598", "westus");
