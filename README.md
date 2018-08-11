@@ -3,6 +3,10 @@ Intervue transcribes spoken audio into text and allows the user to download the 
 Anonymous users can also use the functionality of the site and download the results into a text file but users could also register. Once they login, they can see their previous transcriptions via blob storage.
 
 ---
+## Software Requirements
+Software Requirements can be found [here](/SoftwareRequirements.md).
+
+---
 ## Dependencies
 This application runs on .NET Core 2.1, which can be downloaded [here](https://www.microsoft.com/net/download/macos).
 
