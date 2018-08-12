@@ -23,11 +23,18 @@ dotnet restore
 dotnet run
 ```
 ---
-
 ## Work flow 
 We followed an AGILE workflow. We would conjure up user stories and assign tasks. Once the user stories were available, we would choose on a basis of who wants to complete them. This worked out well. The way we would avoid merge conflicts are by communicating to the team what we would be working on and in what branch. Each new branch would be focused on a specific user story. And we would keep pushing into that branch. 
 Once one of us completed the user story, the person working on it would initiate a pull request and let the rest of the team know when the pull request was active. This is because we agreed to have one other team member look over and approve it. 
 We would then test functionality to see if the staging would still continue on working. If so, we would keep it the way it is. At the end of the day, we would create a pull request into master. Once this pull request was open, this needed approval from two different team members. This assures master would always be functional.
+
+---
+## Data Flow
+![Data Flow](Resources/DataFlow.JPG)
+
+---
+## Database Schema
+![Database Schema](Resources/DBSchema.JPG)
 
 ---
 ## Walk Through
